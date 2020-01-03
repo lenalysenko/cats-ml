@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
 
+    lazy var engine = CatImageEngine()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,49 +27,23 @@ class ViewController: UIViewController {
     func scanImage() {
         guard let image = imageView.image?.cgImage else { return }
 
-        scanImage(image)
+        engine.scanImage(image) { [weak self] result in
+            guard let self = self else { return }
+
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let name):
+                    self.resultLabel.text = name
+                case .failure(let error):
+                    self.resultLabel.text = error.localizedDescription
+                }
+            }
+        }
     }
 
     func setTestImage() {
         let image = UIImage(named: "IMG_0352.JPG")
         imageView.image = image
-    }
-
-    func scanImage(_ image: CGImage) {
-        guard let model = try? VNCoreMLModel(for: CatsML().model) else { return }
-
-        // Create a Vision request with completion handler
-        let request = VNCoreMLRequest(model: model) { [weak self] request, error in
-            guard let self = self else { return }
-
-            guard let results = request.results as? [VNClassificationObservation] else {
-                fatalError("unexpected result type from VNCoreMLRequest")
-            }
-
-            for r in results{
-                let percent = Int(r.confidence * 100)
-                print("\(r.identifier) \(percent)%")
-            }
-
-            if let result = results.first {
-                let percent = Int(result.confidence * 100)
-                DispatchQueue.main.async {
-                    self.resultLabel.text = "\(result.identifier) \(percent)%"
-                }
-            } else {
-                self.resultLabel.text = "Not found"
-            }
-        }
-
-        // Run the Core ML GoogLeNetPlaces classifier on global dispatch queue
-        let handler = VNImageRequestHandler(cgImage: image)
-        DispatchQueue.global(qos: .userInteractive).async {
-            do {
-                try handler.perform([request])
-            } catch {
-                print(error)
-            }
-        }
     }
 
     @IBAction func selectButtonPressed(_ sender: Any) {

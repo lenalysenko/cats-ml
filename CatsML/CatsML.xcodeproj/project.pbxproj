@@ -14,11 +14,10 @@
 		30450FD523BF70F70084B8A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30450FD423BF70F70084B8A9 /* Assets.xcassets */; };
 		30450FD823BF70F70084B8A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30450FD623BF70F70084B8A9 /* LaunchScreen.storyboard */; };
 		30450FE323BF70F70084B8A9 /* CatsMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30450FE223BF70F70084B8A9 /* CatsMLTests.swift */; };
-		30450FF223BF72DE0084B8A9 /* IMG_0386.HEIC in Resources */ = {isa = PBXBuildFile; fileRef = 30450FEE23BF72DE0084B8A9 /* IMG_0386.HEIC */; };
-		30450FF323BF72DE0084B8A9 /* IMG_0372.HEIC in Resources */ = {isa = PBXBuildFile; fileRef = 30450FEF23BF72DE0084B8A9 /* IMG_0372.HEIC */; };
-		30450FF423BF72DE0084B8A9 /* IMG_0387.HEIC in Resources */ = {isa = PBXBuildFile; fileRef = 30450FF023BF72DE0084B8A9 /* IMG_0387.HEIC */; };
 		30450FF523BF72DE0084B8A9 /* IMG_0352.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 30450FF123BF72DE0084B8A9 /* IMG_0352.JPG */; };
-		30450FF923BF7C160084B8A9 /* CatsML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30450FF823BF7C160084B8A9 /* CatsML.mlmodel */; };
+		3045100323BF8E570084B8A9 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3045100023BF8E570084B8A9 /* SqueezeNet.mlmodel */; };
+		3045100423BF8E570084B8A9 /* CatsML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3045100123BF8E570084B8A9 /* CatsML.mlmodel */; };
+		3045100A23BF8FF60084B8A9 /* CatImageEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3045100923BF8FF60084B8A9 /* CatImageEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,11 +42,10 @@
 		30450FDE23BF70F70084B8A9 /* CatsMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatsMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30450FE223BF70F70084B8A9 /* CatsMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsMLTests.swift; sourceTree = "<group>"; };
 		30450FE423BF70F70084B8A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30450FEE23BF72DE0084B8A9 /* IMG_0386.HEIC */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_0386.HEIC; sourceTree = "<group>"; };
-		30450FEF23BF72DE0084B8A9 /* IMG_0372.HEIC */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_0372.HEIC; sourceTree = "<group>"; };
-		30450FF023BF72DE0084B8A9 /* IMG_0387.HEIC */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_0387.HEIC; sourceTree = "<group>"; };
 		30450FF123BF72DE0084B8A9 /* IMG_0352.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0352.JPG; sourceTree = "<group>"; };
-		30450FF823BF7C160084B8A9 /* CatsML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CatsML.mlmodel; sourceTree = SOURCE_ROOT; };
+		3045100023BF8E570084B8A9 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		3045100123BF8E570084B8A9 /* CatsML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CatsML.mlmodel; sourceTree = "<group>"; };
+		3045100923BF8FF60084B8A9 /* CatImageEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +87,9 @@
 		30450FCA23BF70F40084B8A9 /* CatsML */ = {
 			isa = PBXGroup;
 			children = (
-				30450FF823BF7C160084B8A9 /* CatsML.mlmodel */,
+				30450FFE23BF8E360084B8A9 /* Models */,
 				30450FED23BF71540084B8A9 /* Resources */,
+				3045100923BF8FF60084B8A9 /* CatImageEngine.swift */,
 				30450FCB23BF70F40084B8A9 /* AppDelegate.swift */,
 				30450FCD23BF70F40084B8A9 /* SceneDelegate.swift */,
 				30450FCF23BF70F40084B8A9 /* ViewController.swift */,
@@ -115,11 +114,17 @@
 			isa = PBXGroup;
 			children = (
 				30450FF123BF72DE0084B8A9 /* IMG_0352.JPG */,
-				30450FEF23BF72DE0084B8A9 /* IMG_0372.HEIC */,
-				30450FEE23BF72DE0084B8A9 /* IMG_0386.HEIC */,
-				30450FF023BF72DE0084B8A9 /* IMG_0387.HEIC */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		30450FFE23BF8E360084B8A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3045100123BF8E570084B8A9 /* CatsML.mlmodel */,
+				3045100023BF8E570084B8A9 /* SqueezeNet.mlmodel */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,10 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30450FD823BF70F70084B8A9 /* LaunchScreen.storyboard in Resources */,
-				30450FF323BF72DE0084B8A9 /* IMG_0372.HEIC in Resources */,
 				30450FF523BF72DE0084B8A9 /* IMG_0352.JPG in Resources */,
-				30450FF423BF72DE0084B8A9 /* IMG_0387.HEIC in Resources */,
-				30450FF223BF72DE0084B8A9 /* IMG_0386.HEIC in Resources */,
 				30450FD523BF70F70084B8A9 /* Assets.xcassets in Resources */,
 				30450FD323BF70F40084B8A9 /* Main.storyboard in Resources */,
 			);
@@ -227,9 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3045100423BF8E570084B8A9 /* CatsML.mlmodel in Sources */,
 				30450FD023BF70F40084B8A9 /* ViewController.swift in Sources */,
 				30450FCC23BF70F40084B8A9 /* AppDelegate.swift in Sources */,
-				30450FF923BF7C160084B8A9 /* CatsML.mlmodel in Sources */,
+				3045100323BF8E570084B8A9 /* SqueezeNet.mlmodel in Sources */,
+				3045100A23BF8FF60084B8A9 /* CatImageEngine.swift in Sources */,
 				30450FCE23BF70F40084B8A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
