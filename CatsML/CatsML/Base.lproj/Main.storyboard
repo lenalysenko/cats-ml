@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CatsML" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z1b-Ue-OnF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6M-QC-yrm">
+                                <rect key="frame" x="216" y="61" width="178" height="92"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MfZ-z0-LTt">
+                                    <rect key="frame" x="0.0" y="0.0" width="178" height="92"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="bgS-Bc-yTA"/>
+                                    <constraint firstAttribute="height" constant="92" id="oDF-Sg-SzH"/>
+                                </constraints>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L34-9G-OsC">
+                                <rect key="frame" x="284" y="96.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAs-ne-q31">
+                                <rect key="frame" x="185" y="817" width="44" height="30"/>
+                                <state key="normal" title="Select"/>
+                                <connections>
+                                    <action selector="selectButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sVs-dQ-htd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Z1b-Ue-OnF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3LQ-ex-J5K"/>
+                            <constraint firstItem="L34-9G-OsC" firstAttribute="centerY" secondItem="s6M-QC-yrm" secondAttribute="centerY" id="8l1-Ye-b22"/>
+                            <constraint firstAttribute="bottom" secondItem="Z1b-Ue-OnF" secondAttribute="bottom" id="8mg-NQ-xle"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bAs-ne-q31" secondAttribute="bottom" constant="15" id="QIy-9i-lf5"/>
+                            <constraint firstItem="L34-9G-OsC" firstAttribute="centerX" secondItem="s6M-QC-yrm" secondAttribute="centerX" id="WpY-a0-jqQ"/>
+                            <constraint firstItem="s6M-QC-yrm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="bbf-93-7eS"/>
+                            <constraint firstItem="Z1b-Ue-OnF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eAi-rj-vTT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s6M-QC-yrm" secondAttribute="trailing" constant="20" id="g0G-AQ-awO"/>
+                            <constraint firstItem="Z1b-Ue-OnF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jHa-Wp-Bk2"/>
+                            <constraint firstItem="bAs-ne-q31" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lmw-Mx-jMJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Z1b-Ue-OnF" id="Aq2-cV-BgO"/>
+                        <outlet property="resultLabel" destination="L34-9G-OsC" id="Ecv-s8-3SS"/>
+                        <outlet property="selectButton" destination="bAs-ne-q31" id="XED-et-piZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
+        </scene>
+    </scenes>
+</document>
