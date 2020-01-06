@@ -18,6 +18,7 @@
 		3045100323BF8E570084B8A9 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3045100023BF8E570084B8A9 /* SqueezeNet.mlmodel */; };
 		3045100423BF8E570084B8A9 /* CatsML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3045100123BF8E570084B8A9 /* CatsML.mlmodel */; };
 		3045100A23BF8FF60084B8A9 /* CatImageEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3045100923BF8FF60084B8A9 /* CatImageEngine.swift */; };
+		3045107323C35F760084B8A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3045107223C35F760084B8A9 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		3045100023BF8E570084B8A9 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		3045100123BF8E570084B8A9 /* CatsML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CatsML.mlmodel; sourceTree = "<group>"; };
 		3045100923BF8FF60084B8A9 /* CatImageEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageEngine.swift; sourceTree = "<group>"; };
+		3045107223C35F760084B8A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +93,9 @@
 				30450FED23BF71540084B8A9 /* Resources */,
 				3045100923BF8FF60084B8A9 /* CatImageEngine.swift */,
 				30450FCB23BF70F40084B8A9 /* AppDelegate.swift */,
-				30450FCD23BF70F40084B8A9 /* SceneDelegate.swift */,
 				30450FCF23BF70F40084B8A9 /* ViewController.swift */,
-				30450FD123BF70F40084B8A9 /* Main.storyboard */,
-				30450FD423BF70F70084B8A9 /* Assets.xcassets */,
-				30450FD623BF70F70084B8A9 /* LaunchScreen.storyboard */,
-				30450FD923BF70F70084B8A9 /* Info.plist */,
+				3045107223C35F760084B8A9 /* SettingsViewController.swift */,
+				3045107123C35CF30084B8A9 /* Supporting Files */,
 			);
 			path = CatsML;
 			sourceTree = "<group>";
@@ -125,6 +124,18 @@
 				3045100023BF8E570084B8A9 /* SqueezeNet.mlmodel */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3045107123C35CF30084B8A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				30450FCD23BF70F40084B8A9 /* SceneDelegate.swift */,
+				30450FD123BF70F40084B8A9 /* Main.storyboard */,
+				30450FD423BF70F70084B8A9 /* Assets.xcassets */,
+				30450FD623BF70F70084B8A9 /* LaunchScreen.storyboard */,
+				30450FD923BF70F70084B8A9 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +242,7 @@
 			files = (
 				3045100423BF8E570084B8A9 /* CatsML.mlmodel in Sources */,
 				30450FD023BF70F40084B8A9 /* ViewController.swift in Sources */,
+				3045107323C35F760084B8A9 /* SettingsViewController.swift in Sources */,
 				30450FCC23BF70F40084B8A9 /* AppDelegate.swift in Sources */,
 				3045100323BF8E570084B8A9 /* SqueezeNet.mlmodel in Sources */,
 				3045100A23BF8FF60084B8A9 /* CatImageEngine.swift in Sources */,
@@ -396,7 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5PDTVU7R8;
-				INFOPLIST_FILE = CatsML/Info.plist;
+				INFOPLIST_FILE = "CatsML/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -415,7 +427,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5PDTVU7R8;
-				INFOPLIST_FILE = CatsML/Info.plist;
+				INFOPLIST_FILE = "CatsML/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

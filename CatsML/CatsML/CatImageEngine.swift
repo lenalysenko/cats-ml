@@ -36,28 +36,42 @@ class CatImageEngine {
     lazy var genericModel = SqueezeNet().model
     lazy var catModel = CatsML().model
 
+    var usingGenericModel: Bool {
+        return UserDefaults.standard.bool(forKey: SettingsKeys.usingGenericModel.rawValue)
+    }
+
     func scanImage(_ image: CGImage, completion: @escaping ((Result<CatEngineResult, Error>) -> ()) ) {
+        if !usingGenericModel {
+            runWithCatModel(image, completion: completion)
+            return
+        }
+
         runFor(image: image, withGenericModel: true) { result in
             switch result {
             case .success(let results):
                 if self.containsCat(in: results) {
-                    self.runFor(image: image, withGenericModel: false) { newResult in
-                        switch newResult {
-                        case .success(let results):
-                            if let result = results.first {
-                                let percent = Int(result.confidence * 100)
-                                let resultText = "\(result.identifier) \(percent)%"
-                                let fullResult = CatEngineResult(title: result.identifier, accuracy: result.confidence, displayString: resultText)
-                                completion(.success(fullResult))
-                            } else {
-                                completion(.failure(EngineError.noResults))
-                            }
-                        case .failure(let error):
-                            completion(.failure(error))
-                        }
-                    }
-                } else {
+                    self.runWithCatModel(image, completion: completion)
+                }
+                else {
                     completion(.failure(EngineError.notACat))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func runWithCatModel(_ image: CGImage, completion: @escaping ((Result<CatEngineResult, Error>) -> ())) {
+        self.runFor(image: image, withGenericModel: false) { newResult in
+            switch newResult {
+            case .success(let results):
+                if let result = results.first {
+                    let percent = Int(result.confidence * 100)
+                    let resultText = "\(result.identifier) \(percent)%"
+                    let fullResult = CatEngineResult(title: result.identifier, accuracy: result.confidence, displayString: resultText)
+                    completion(.success(fullResult))
+                } else {
+                    completion(.failure(EngineError.noResults))
                 }
             case .failure(let error):
                 completion(.failure(error))
