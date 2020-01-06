@@ -26,11 +26,17 @@ extension EngineError: LocalizedError {
     }
 }
 
+struct CatEngineResult {
+    let title: String
+    let accuracy: Float
+    let displayString: String
+}
+
 class CatImageEngine {
     lazy var genericModel = SqueezeNet().model
     lazy var catModel = CatsML().model
 
-    func scanImage(_ image: CGImage, completion: @escaping ((Result<String, Error>) -> ()) ) {
+    func scanImage(_ image: CGImage, completion: @escaping ((Result<CatEngineResult, Error>) -> ()) ) {
         runFor(image: image, withGenericModel: true) { result in
             switch result {
             case .success(let results):
@@ -41,7 +47,8 @@ class CatImageEngine {
                             if let result = results.first {
                                 let percent = Int(result.confidence * 100)
                                 let resultText = "\(result.identifier) \(percent)%"
-                                completion(.success(resultText))
+                                let fullResult = CatEngineResult(title: result.identifier, accuracy: result.confidence, displayString: resultText)
+                                completion(.success(fullResult))
                             } else {
                                 completion(.failure(EngineError.noResults))
                             }

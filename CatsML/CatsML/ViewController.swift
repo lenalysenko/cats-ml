@@ -14,8 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
 
     lazy var engine = CatImageEngine()
+
+    var result: CatEngineResult?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +35,14 @@ class ViewController: UIViewController {
 
             DispatchQueue.main.async {
                 switch result {
-                case .success(let name):
-                    self.resultLabel.text = name
+                case .success(let result):
+                    self.result = result
+                    self.resultLabel.text = result.displayString
+                    self.moreButton.isHidden = false
                 case .failure(let error):
                     self.resultLabel.text = error.localizedDescription
+                    self.moreButton.isHidden = true
+                    self.result = nil
                 }
             }
         }
@@ -53,6 +60,21 @@ class ViewController: UIViewController {
             myPickerController.sourceType = .photoLibrary
             present(myPickerController, animated: true, completion: nil)
         }
+    }
+
+    @IBAction func moreButtonPressed(_ sender: Any) {
+        guard let result = result, !result.title.isEmpty else { return }
+
+        openTagsFor(result.title)
+    }
+
+    func openTagsFor(_ tag: String) {
+        let urlString = "https://www.instagram.com/explore/tags/" + tag.replacingOccurrences(of: " ", with: "") + "cat"
+        guard let url = URL(string: urlString) else {
+            return
+        }
+
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
