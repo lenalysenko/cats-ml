@@ -23,6 +23,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(forName: .SettingsChanged, object: nil, queue: nil) { [weak self] _ in
+            self?.scanImage()
+        }
+
         setTestImage()
         scanImage()
     }

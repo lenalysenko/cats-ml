@@ -12,6 +12,10 @@ enum SettingsKeys: String {
     case usingGenericModel
 }
 
+extension Notification.Name {
+    static let SettingsChanged: Notification.Name = Notification.Name("SettingsChanged")
+}
+
 class SettingsViewController: UITableViewController {
     @IBOutlet weak var switch1: UISwitch!
 
@@ -44,5 +48,7 @@ class SettingsViewController: UITableViewController {
 
     @IBAction func switch1ValueChanged(_ sender: Any) {
         UserDefaults.standard.set(switch1.isOn, forKey: SettingsKeys.usingGenericModel.rawValue)
+
+        NotificationCenter.default.post(Notification(name: .SettingsChanged))
     }
 }
