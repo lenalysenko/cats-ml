@@ -2,7 +2,7 @@
 //  CatImageEngine.swift
 //  CatsML
 //
-//  Created by CW2519 on 1/3/20.
+//  Created on 1/3/20.
 //  Copyright © 2020 lena. All rights reserved.
 //
 
