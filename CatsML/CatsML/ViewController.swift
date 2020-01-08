@@ -12,6 +12,7 @@ import Vision
 
 class ViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
     func setTestImage() {
         let image = UIImage(named: "IMG_0352.JPG")
         imageView.image = image
+        backgroundImageView.image = image
     }
 
     @IBAction func selectButtonPressed(_ sender: Any) {
@@ -90,6 +92,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             imageView.image = image
+            backgroundImageView.image = image
             scanImage()
         } else{
             print("Something went wrong")
